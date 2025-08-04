@@ -10,7 +10,7 @@ services:
       - key: SERVER_URL
         value: https://evolution-api-<tuclave123>.onrender.com
       - key: AUTHENTICATION_API_KEY
-        sync: false  # Configura en Render
+        sync: false  # Configura manualmente en Render
       - key: DATABASE_ENABLED
         value: true
       - key: DATABASE_PROVIDER
@@ -39,12 +39,12 @@ databases:
     user: evolution_user
     plan: free  # Usa 'pro' para 24/7
     region: frankfurt
-    ipAllowList: []  # Solo internas
+    ipAllowList: []  # Solo conexiones internas
 
 services:
   - type: redis
     name: evolution-redis
     plan: free  # Usa 'pro' para 24/7
     region: frankfurt
-    ipAllowList: []  # Solo internas
+    ipAllowList: []  # Solo conexiones internas
     maxmemoryPolicy: noeviction
