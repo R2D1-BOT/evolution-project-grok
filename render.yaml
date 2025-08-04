@@ -4,13 +4,13 @@ services:
     runtime: image
     image:
       url: docker.io/atendai/evolution-api:v2.1.1
-    plan: free  # Usa 'pro' para 24/7
-    region: frankfurt  # Ajusta (ej. oregon)
+    plan: free  # Cambia a 'pro' para 24/7
+    region: frankfurt  # Cambia a 'oregon' si falla
     envVars:
       - key: SERVER_URL
-        value: https://evolution-api-<tuclave123>.onrender.com
+        value: https://evolution-api-<tu-id>.onrender.com
       - key: AUTHENTICATION_API_KEY
-        sync: false  # Configura manualmente en Render
+        sync: false
       - key: DATABASE_ENABLED
         value: true
       - key: DATABASE_PROVIDER
@@ -31,22 +31,20 @@ services:
       - key: TZ
         value: Atlantic/Canary
       - key: NODE_ENV
-        value: production  # Modo producción obligatorio
+        value: production
     numInstances: 1
     port: 8080
+  - type: redis
+    name: evolution-redis
+    plan: free  # Cambia a 'pro' para 24/7
+    region: frankfurt
+    ipAllowList: []  # Solo conexiones internas
+    maxmemoryPolicy: noeviction
 
 databases:
   - name: evolution-db
     databaseName: evolution
     user: evolution_user
-    plan: free  # Usa 'pro' para 24/7
+    plan: free  # Cambia a 'pro' para 24/7
     region: frankfurt
     ipAllowList: []  # Solo conexiones internas
-
-services:
-  - type: redis
-    name: evolution-redis
-    plan: free  # Usa 'pro' para 24/7
-    region: frankfurt
-    ipAllowList: []  # Solo conexiones internas
-    maxmemoryPolicy: noeviction
