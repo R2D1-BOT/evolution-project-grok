@@ -8,7 +8,7 @@ services:
     region: frankfurt  # Ajusta (ej. oregon)
     envVars:
       - key: SERVER_URL
-        value: https://evolution-api-<tu-id>.onrender.com
+        value: https://evolution-api-<tuclave123>.onrender.com
       - key: AUTHENTICATION_API_KEY
         sync: false  # Configura en Render
       - key: DATABASE_ENABLED
