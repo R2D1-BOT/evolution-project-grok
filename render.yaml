@@ -30,6 +30,8 @@ services:
         value: evolution
       - key: TZ
         value: Atlantic/Canary
+      - key: NODE_ENV
+        value: production  # Modo producción obligatorio
     numInstances: 1
     port: 8080
 
